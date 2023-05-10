@@ -26,7 +26,7 @@ const options = {
 const app = express();
 
 app.use(cors());
-app.options('*',cors());
+//app.options('*',cors());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 //app.use() routes
