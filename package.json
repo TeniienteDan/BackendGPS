@@ -1,4 +1,13 @@
 {
+  "name": "backend-sm-accesorios-api",
+  "version": "1.0.0",
+  "description": "API dispuesta para pymes de accesoriso S&M",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "start:dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.2",
