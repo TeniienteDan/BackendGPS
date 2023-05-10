@@ -19,7 +19,7 @@ const authentication= (res, req, next)=>{
 }
 
 //autorizacion
-const secreto= process.env.SECRET;
+const secreto= process.env.SECRET ?? '';
 const authorization=expressJwt.expressjwt({secret:secreto, algorithms:['HS256']});
 
 module.exports={authentication, authorization};
