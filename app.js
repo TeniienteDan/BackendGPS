@@ -4,6 +4,14 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+
+dotenv.config();//activar variables de entorno
+//servidor bdd
+const DB_Host= process.env.DB_HOST;
+//servidor backend
+const host = process.env.HOST;
+const port = process.env.PORT;
+
 const options = {
     useNewUrlParser: true,
 
@@ -13,19 +21,7 @@ const options = {
     socketTimeoutMS: 45000,
     family: 4
 }
-//Agregando variables de entorno
-dotenv.config();//activar variables de entorno
-//servidor bdd
-const DB_Host= process.env.DB_HOST;
-//servidor backend
-const host = process.env.HOST;
-const port = process.env.PORT;
 
-//importar routes
-const productRoutes = require('./src/routes/product.routes.js');
-const saleRoutes = require('./src/routes/sale.routes.js');
-const saleProductRoutes = require('./src/routes/saleProduct.routes.js');
-const userRoutes = require('./src/routes/user.routes.js');
 
 const app = express();
 
@@ -34,6 +30,15 @@ app.options('*',cors());
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 //app.use() routes
+
+
+
+//importar routes
+const productRoutes = require('./src/routes/product.routes.js');
+const saleRoutes = require('./src/routes/sale.routes.js');
+const saleProductRoutes = require('./src/routes/saleProduct.routes.js');
+const userRoutes = require('./src/routes/user.routes.js');
+
 app.use('/api',productRoutes);
 app.use('/api',saleRoutes);
 app.use('/api',saleProductRoutes);
