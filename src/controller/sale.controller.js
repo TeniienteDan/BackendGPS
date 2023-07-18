@@ -20,7 +20,7 @@ const insertSale = (req, res) =>{
             if(err){
                 return res.status(500).send({message:'No fue posible ingresar la venta'});
             }
-            res.status(200).send({message:'Venta ingresada con exito'});
+            res.status(200).send({saleStore});
         });
     }catch(err){
         return res.status(500).send({message:'Error interno'});
